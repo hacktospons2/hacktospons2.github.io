@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <link rel="stylesheet" href="styles.css" />
+        <meta charset = "utf-8">
+        <title>HacktoSponsor</title>
+    </head>
+    <body>
+        <h1 id = "bigOne"></h1>
+        <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+        <script>
+        
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+        authDomain: "hacktospons-3cbeb.firebaseapp.com",
+        databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+        storageBucket: "hacktospons-3cbeb.appspot.com",
+        messagingSenderId: "523367268259"
+    };
+    firebase.initializeApp(config);
+    
+    var bigOne = document.getElementById('bigOne');
+    var dbRef = firebase.databse().ref().child('text');
+    dbRef.on('value',snap => bigOne.innerText = snap.val());
+    </script>
+    </body>
+</html>
