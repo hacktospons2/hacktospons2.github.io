@@ -18,11 +18,11 @@
         storageBucket: "hacktospons-3cbeb.appspot.com",
         messagingSenderId: "523367268259"
     };
-    firebase.initializeApp(config);
+    firebase.initializeApp(config); 
     
     var bigOne = document.getElementById('bigOne');
-    var dbRef = firebase.databse().ref().child('text');
+    var dbRef = firebase.database().ref().child('text');
     dbRef.on('value',snap => bigOne.innerText = snap.val());
     </script>
-    </body>
+    </body> 
 </html>
