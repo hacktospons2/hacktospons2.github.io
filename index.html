@@ -9,12 +9,16 @@
 <h1><span class="yellow">HackToSpons</span></h1>
 <h2>Need a sponsor for your hackathon? Looking for hackathons to get publicity from? <a rel="nofollow" rel="noreferrer"href="https://github.com/hacktospons2/hacktospons2.github.io" target="_blank">We have the solution.</a></h2>
 
- <form class="btn-group" action="" style="text-align: center">
-  <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto; padding: 100px"> Hackathon Organizer
-  <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto"> Company
-</form>
+ <form style="text-align: center" name="typeform" id="typeform">
+  <input type="radio" name="group_type" id="group_type_company" value="Company" > Company </input>
+  <input type="radio" name="group_type" id="group_type_organizer" value="Organizer" > Hackathon Organizer </input>
+ </form>
 
  <p>
+  <form style="text-align: center">
+  Name:
+  <input type="text" name="nombre" id="nombre" style="margin: 0 auto">
+  <br/>
   <form style="text-align: center">
   Contact email:
   <input type="text" name="email" id="email" style="margin: 0 auto">
@@ -57,6 +61,7 @@
 </form>
 
 <script>
+    var nombre = document.getElementById("nombre");
     var email = document.getElementById("email");
     var website = document.getElementById("website");
     var money = document.getElementById("money");
@@ -64,13 +69,17 @@
     var startDate = document.getElementById("startDate");
     var endDate = document.getElementById("endDate");
     var submit = document.getElementById("submit");
-    var database = firebase.database();
-    //if radiobutton = organize, ref parameter = organizers, else = companies
+    var database = firebase.database(); /*global firebase*/
     var reference = database.ref();
 
     // sending
     submit.onclick = function() {
+    if(document.getElementById('group_type_company').checked)
+     reference = database.ref("companies/");
+    else if(document.getElementById('group_type_organizer').checked)
+     reference = database.ref("organizers/");
         reference.push({
+         name: nombre.value,
          email: email.value,
          website: website.value,
          money: money.value,
@@ -78,6 +87,7 @@
          startDate: startDate.value,
          endDate: endDate.value
         });
+        nombre.value = "";
         email.value = "";
         website.value = "";
         money.value = "";
@@ -86,25 +96,7 @@
         endDate.value = "";
     };
 
-    array1.addEventListener("keyup", function(event) {
-      if (event.which == 13) {
-        reference.push({
-         email: email.value,
-         website: website.value,
-         money: money.value,
-         place: place.value,
-         startDate: startDate.value,
-         endDate: endDate.value
-        });
-        email.value = "";
-        website.value = "";
-        money.value = "";
-        place.value = "";
-        startDate.value = "";
-        endDate.value = "";
-      }
-    });
-     clear.onclick = function() {
+     clear.onclick = function() { /*global clear*/
          reference.remove();
      };
     //receiving
@@ -113,10 +105,10 @@
       list.innerHTML = "";
       for (var key in todo) {
         var value = todo[key];
-        list.innerHTML += '<li>' + value + '</li>';
+        list.innerHTML += '<li>' + value + '</li>'; /*global list*/
       }
 
-    })
+    });
     </script>
 
 <form style="text-align: center" action="hackathonList.html"> 

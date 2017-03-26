@@ -1,18 +1,20 @@
 
-    var mainText = document.getElementById("mainText");
-    var submitBtn = document.getElementById("submitBtn");
-    var email = document.getElementById('email').value;
     
-    var company = {email: "", website: "", money: "", location: "", start: "", end: ""};
+    var rootRef = firebase.database().ref().child("organizers");
     
-    function submitClick()
-    {
-        var firebaseRef = firebase.database().ref();
-        var messageText = mainText.value;
-        firebaseRef.push().set(messageText);
-    }
-    
-    vart rootRef = firebase.database().ref().child("Users"];
     rootRef.on("child_added", snap => {
-    alert(snap.val());
+        
+        
+         var name = snap.child("nombre").value;
+         var email = snap.child("email").value;
+         var website = snap.child("website").value;
+         var money = snap.child("money").value;
+         var place = snap.child("place").value;
+         var startDate = snap.child("startDate").value;
+         var endDate = snap.child("endDate").value;
+  
+    $("#table_body").append("<tr><td>" + name + "</td><td>" + email +
+         "</td><td>" + website + "</td><td>" + money + "</td><td>" + 
+         place + "</td><td>" + startDate + "</td><td>" + endDate);
+  
     });
