@@ -1,6 +1,7 @@
 
     var mainText = document.getElementById("mainText");
     var submitBtn = document.getElementById("submitBtn");
+    var company = {name: "", money: "",  };
     
     function submitClick()
     {
