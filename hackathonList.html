@@ -5,15 +5,73 @@
      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" type="text/css" href="css/qdIsm.css">
+  <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
 <h1><span class="yellow">HackToSpons</span></h1>
 <h2>Need a sponsor for your hackathon? Looking for hackathons to get publicity from? <a rel="nofollow" rel="noreferrer"href="http://pablogarciafernandez.com" target="_blank">We hav the solution.</a></h2>
 
-<table class="container">
+<div class="tab">
+  <button class="tablinks" onclick="openList(event, 'hackathon')">Hackathons Looking For Sponsors</button>
+  <button class="tablinks" onclick="openList(event, 'company')">Companies Providing Sponsorships</button>
+</div>
+
+<div id="hackathon" class="tabcontent">
+  <table class="container">
 	<thead>
 		<tr>
 			<th><h1>Hackathons</h1></th>
+			<th><h1>Views</h1></th>
+			<th><h1>Clicks</h1></th>
+			<th><h1>Average</h1></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>MakeHacks</td>
+			<td>9518</td>
+			<td>6369</td>
+			<td>01:32:50</td>
+		</tr>
+		<tr>
+			<td>HSHacks</td>
+			<td>7326</td>
+			<td>10437</td>
+			<td>00:51:22</td>
+		</tr>
+		<tr>
+			<td>BaseHacks</td>
+			<td>4162</td>
+			<td>5327</td>
+			<td>00:24:34</td>
+		</tr>
+    <tr>
+			<td>MV Hacks</td>
+			<td>3654</td>
+			<td>2961</td>
+			<td>00:12:10</td>
+		</tr>
+    <tr>
+			<td>SM Hacks</td>
+			<td>2002</td>
+			<td>4135</td>
+			<td>00:46:19</td>
+		</tr>
+    <tr>
+			<td>Los Altos Hacks</td>
+			<td>4623</td>
+			<td>3486</td>
+			<td>00:31:52</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div id="company" class="tabcontent">
+  <table class="container">
+	<thead>
+		<tr>
+			<th><h1>Companies</h1></th>
 			<th><h1>Views</h1></th>
 			<th><h1>Clicks</h1></th>
 			<th><h1>Average</h1></th>
@@ -58,5 +116,8 @@
 		</tr>
 	</tbody>
 </table>
+</div>
+
+
  </body>
   </html>
