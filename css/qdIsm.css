@@ -17,7 +17,6 @@ body {
   line-height: 1.42em;
   color:#A7A1AE;
   background-color:#1F2739;
-  text-align: center;
 }
 
 h1 {
@@ -44,7 +43,9 @@ h2 a {
   color: #FB667A;
   text-decoration: none;
 }
-
+form{
+  text-align: center;
+}
 .blue { color: #185875; }
 .yellow { color: #FFF842; }
 
