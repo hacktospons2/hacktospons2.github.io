@@ -5,7 +5,7 @@
     rootRef.on("child_added", snap => {
         
         
-         var name = snap.child("nombre").value;
+         var name = snap.child("name").value;
          var email = snap.child("email").value;
          var website = snap.child("website").value;
          var money = snap.child("money").value;

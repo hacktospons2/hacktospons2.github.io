@@ -50,29 +50,28 @@
     rootRef.on("child_added", snap => {
         
         
-         var name = snap.child("name").value;
-         var email = snap.child("email").value;
-         var website = snap.child("website").value;
-         var money = snap.child("money").value;
-         var place = snap.child("place").value;
-         var startDate = snap.child("startDate").value;
-         var endDate = snap.child("endDate").value;
+         var name = snap.child("name").val();
+         var email = snap.child("email").val();
+         var website = snap.child("website").val();
+         var money = snap.child("money").val();
+         var place = snap.child("place").val();
+         var startDate = snap.child("startDate").val();
+         var endDate = snap.child("endDate").val();
   
-    $("#tbody").append("<tr><td>" + name + "</td><td>" + website +
-         "</td><td>" + email + "</td><td>" + money + "</td><td>" + 
-         place + "</td><td>" + startDate + "</td><td>" + endDate+"</td></tr>");
+		document.getElementById("nameinsert").innerHTML = name;
+		document.getElementById("emailinsert").innerHTML = email;
+		document.getElementById("websiteinsert").innerHTML = website;
+		document.getElementById("moneyinsert").innerHTML = money;
+		document.getElementById("placeinsert").innerHTML = place;
+		document.getElementById("startDateinsert").innerHTML = startDate;
+		document.getElementById("endDateinsert").innerHTML = endDate;
+
+  
+  $("#table_body").append("<tr><td id='nameinsert'></td><td id='emailinsert'></td><td id='websiteinsert'></td><td id='moneyinsert'></td><td id='placeinsert'></td><td id='startDateinsert'></td><td id='endDateinsert'></td></tr>");
+  
   
     });
       </script>
-		<tr>
-			<td>MakeHacks</td>
-			<td>makehacks.com</td>
-			<td>makehacks@gmail.com</td>
-			<td>$4000</td>
-			<td>San Francisco</td>
-			<td>4/20/17</td>
-			<td>4/21/17</td>
-		</tr>
 		<tr>
 			<td>HSHacks</td>
 			<td>hshacks.com</td>
@@ -117,6 +116,15 @@
 			<td>San Jose</td>
 			<td>4/11/17</td>
 			<td>4/20/17</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 	</tbody>
 </table>
