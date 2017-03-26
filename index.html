@@ -14,33 +14,81 @@
   <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto"> Company
 </form>
 
- <form style="text-align: center">
+ <p>
+  <form style="text-align: center">
   Contact email:
   <input type="text" name="email" id="email" style="margin: 0 auto">
-  </form>
+  <br/>
   <form style="text-align: center">
   Website:
   <input type="text" name="website" id="website" style="margin: 0 auto">
-  </form>
+  <br/>
  <form style="text-align: center"> 
   Money requesting/sponsoring:
   <input type="text" name="money" id="money" style="margin: 0 auto">
-</form>
+<br/>
 <form style="text-align: center">
   Location:
   <input type="text" name="location" id="location" style="margin: 0 auto">
- </form>
+ <br/>
  <form style="text-align: center">
   Availability Start Date:
   <input type="text" name="startDate" id="startDate" style="margin: 0 auto">
   Availability End Date:
   <input type="text" name="endDate" id="endDate" style="margin: 0 auto">
  </form>
+ </p>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+     <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+        authDomain: "hacktospons-3cbeb.firebaseapp.com",
+        databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+        storageBucket: "hacktospons-3cbeb.appspot.com",
+        messagingSenderId: "523367268259"
+      };
+      firebase.initializeApp(config); /*global firebase*/
+      </script>
 
 <form style="text-align: center"> 
-  <input type="submit" value="Submit">
-  
+  <input type="submit" id="submit" value="submit">
 </form>
+
+<script>
+    var input = document.getElementById("email");
+    var submit = document.getElementById("submit");
+    var database = firebase.database();
+    var reference = database.ref();
+
+    // sending
+    submit.onclick = function() {
+        reference.push(input.value);
+        input.value = "";
+    };
+
+    input.addEventListener("keyup", function(event) {
+      if (event.which == 13) {
+        reference.push(input.value);
+        input.value = "";
+      }
+    });
+     clear.onclick = function() {
+         reference.remove();
+     };
+    //receiving
+    reference.on("value", function(snapshot) {
+      var todo = snapshot.val();
+      list.innerHTML = "";
+      for (var key in todo) {
+        var value = todo[key];
+        list.innerHTML += '<li>' + value + '</li>';
+      }
+
+    })
+
+    </script>
 
 <form style="text-align: center" action="hackathonList.html"> 
   <input type="submit" value="View Hackathons/Sponsors">

@@ -1,7 +1,9 @@
 
     var mainText = document.getElementById("mainText");
     var submitBtn = document.getElementById("submitBtn");
-    var company = {name: "", money: "",  };
+    var email = document.getElementById('email').value;
+    
+    var company = {email: "", website: "", money: "", location: "", start: "", end: ""};
     
     function submitClick()
     {

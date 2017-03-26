@@ -42,7 +42,9 @@
         input.value = "";
       }
     });
-
+     clear.onclick = function() {
+         reference.remove();
+     };
     //receiving
     reference.on("value", function(snapshot) {
       var todo = snapshot.val();
