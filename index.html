@@ -29,7 +29,7 @@
 <br/>
 <form style="text-align: center">
   Location:
-  <input type="text" name="location" id="location" style="margin: 0 auto">
+  <input type="text" name="place" id="place" style="margin: 0 auto">
  <br/>
  <form style="text-align: center">
   Availability Start Date:
@@ -51,27 +51,57 @@
       };
       firebase.initializeApp(config); /*global firebase*/
       </script>
-
+<button id="clear">Clear Database</button>
 <form style="text-align: center"> 
   <input type="submit" id="submit" value="submit">
 </form>
 
 <script>
-    var input = document.getElementById("email");
+    var email = document.getElementById("email");
+    var website = document.getElementById("website");
+    var money = document.getElementById("money");
+    var place = document.getElementById("place");
+    var startDate = document.getElementById("startDate");
+    var endDate = document.getElementById("endDate");
     var submit = document.getElementById("submit");
     var database = firebase.database();
+    //if radiobutton = organize, ref parameter = organizers, else = companies
     var reference = database.ref();
 
     // sending
     submit.onclick = function() {
-        reference.push(input.value);
-        input.value = "";
+        reference.push({
+         email: email.value,
+         website: website.value,
+         money: money.value,
+         place: place.value,
+         startDate: startDate.value,
+         endDate: endDate.value
+        });
+        email.value = "";
+        website.value = "";
+        money.value = "";
+        place.value = "";
+        startDate.value = "";
+        endDate.value = "";
     };
 
-    input.addEventListener("keyup", function(event) {
+    array1.addEventListener("keyup", function(event) {
       if (event.which == 13) {
-        reference.push(input.value);
-        input.value = "";
+        reference.push({
+         email: email.value,
+         website: website.value,
+         money: money.value,
+         place: place.value,
+         startDate: startDate.value,
+         endDate: endDate.value
+        });
+        email.value = "";
+        website.value = "";
+        money.value = "";
+        place.value = "";
+        startDate.value = "";
+        endDate.value = "";
       }
     });
      clear.onclick = function() {
@@ -87,7 +117,6 @@
       }
 
     })
-
     </script>
 
 <form style="text-align: center" action="hackathonList.html"> 
