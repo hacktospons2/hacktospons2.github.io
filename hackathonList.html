@@ -43,9 +43,10 @@
 			<th><h1>Available Until</h1></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="table_body">
 		<script type="text/javascript">
       	var rootRef = firebase.database().ref().child("organizers");
+   
     
     rootRef.on("child_added", snap => {
         
@@ -57,6 +58,30 @@
          var place = snap.child("place").val();
          var startDate = snap.child("startDate").val();
          var endDate = snap.child("endDate").val();
+         
+         console.log("hejfd");
+         console.log(snap);
+
+		var table_row=document.getElementById("table_body");
+		
+		var new_row=table_row.insertRow(table_row.rows.length);
+		function createCell(cell, text, style) {
+    		var div = document.createElement('div'), // create DIV element
+        	txt = document.createTextNode(text); // create text node
+    		div.appendChild(txt);                    // append text node to the DIV
+    		div.setAttribute('class', style);        // set DIV class attribute
+    		div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
+    		cell.appendChild(div);                   // append DIV to the table cell
+		}
+		
+		createCell(new_row.insertCell(0), name, 'row');
+        createCell(new_row.insertCell(1), email, 'row');
+        createCell(new_row.insertCell(2), website, 'row');
+        createCell(new_row.insertCell(3), money, 'row');
+        createCell(new_row.insertCell(4), place, 'row');
+        createCell(new_row.insertCell(5), startDate, 'row');
+        createCell(new_row.insertCell(6), endDate, 'row');
+		//$("#tbody").insertRow("<tr><td id='nameinsert'></td><td id='emailinsert'></td><td id='websiteinsert'></td><td id='moneyinsert'></td><td id='placeinsert'></td><td id='startDateinsert'></td><td id='endDateinsert'></td></tr>");
   
 		document.getElementById("nameinsert").innerHTML = name;
 		document.getElementById("emailinsert").innerHTML = email;
@@ -67,65 +92,9 @@
 		document.getElementById("endDateinsert").innerHTML = endDate;
 
   
-  $("#table_body").append("<tr><td id='nameinsert'></td><td id='emailinsert'></td><td id='websiteinsert'></td><td id='moneyinsert'></td><td id='placeinsert'></td><td id='startDateinsert'></td><td id='endDateinsert'></td></tr>");
-  
   
     });
       </script>
-		<tr>
-			<td>HSHacks</td>
-			<td>hshacks.com</td>
-			<td>hshacks@gmail.com</td>
-			<td>$5000</td>
-			<td>Fremont</td>
-			<td>4/19/17</td>
-			<td>4/20/17</td>
-		</tr>
-		<tr>
-			<td>BaseHacks</td>
-			<td>basehacks.com</td>
-			<td>basehacks@gmail.com</td>
-			<td>$3000</td>
-			<td>San Jose</td>
-			<td>4/21/17</td>
-			<td>4/22/17</td>
-		</tr>
-    <tr>
-			<td>MV Hacks</td>
-			<td>mvhacks.com</td>
-			<td>mvhacks@gmail.com</td>
-			<td>$7000</td>
-			<td>Fremont</td>
-			<td>5/20/17</td>
-			<td>4/21/17</td>
-		</tr>
-    <tr>
-			<td>SM Hacks</td>
-			<td>smhacks.com</td>
-			<td>smhacks@gmail.com</td>
-			<td>$8000</td>
-			<td>Santa Clara</td>
-			<td>4/18/17</td>
-			<td>4/19/17</td>
-		</tr>
-    <tr>
-			<td>Los Altos Hacks</td>
-			<td>losaltoshacks.com</td>
-			<td>losaltoshacks@gmail.com</td>
-			<td>$1000</td>
-			<td>San Jose</td>
-			<td>4/11/17</td>
-			<td>4/20/17</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
 	</tbody>
 </table>
 </div>
@@ -143,82 +112,54 @@
 			<th><h1>Available Until</h1></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="table_body2">
 		<script type="text/javascript">
       	var rootRef = firebase.database().ref().child("companies");
     
     rootRef.on("child_added", snap => {
         
         
-         var name = snap.child("name").value;
-         var email = snap.child("email").value;
-         var website = snap.child("website").value;
-         var money = snap.child("money").value;
-         var place = snap.child("place").value;
-         var startDate = snap.child("startDate").value;
-         var endDate = snap.child("endDate").value;
+         var name = snap.child("name").val();
+         var email = snap.child("email").val();
+         var website = snap.child("website").val();
+         var money = snap.child("money").val();
+         var place = snap.child("place").val();
+         var startDate = snap.child("startDate").val();
+         var endDate = snap.child("endDate").val();
+         
+         console.log("hejfd");
+         console.log(snap);
+
+		var table_row=document.getElementById("table_body2");
+		
+		var new_row=table_row.insertRow(table_row.rows.length);
+		function createCell(cell, text, style) {
+    		var div = document.createElement('div'), // create DIV element
+        	txt = document.createTextNode(text); // create text node
+    		div.appendChild(txt);                    // append text node to the DIV
+    		div.setAttribute('class', style);        // set DIV class attribute
+    		div.setAttribute('className', style);    // set DIV class attribute for IE (?!)
+    		cell.appendChild(div);                   // append DIV to the table cell
+		}
+		
+		createCell(new_row.insertCell(0), name, 'row');
+        createCell(new_row.insertCell(1), email, 'row');
+        createCell(new_row.insertCell(2), website, 'row');
+        createCell(new_row.insertCell(3), money, 'row');
+        createCell(new_row.insertCell(4), place, 'row');
+        createCell(new_row.insertCell(5), startDate, 'row');
+        createCell(new_row.insertCell(6), endDate, 'row');
   
-	var div = document.getElementById('tbody');
-	div.innerHTML += "<tr><td>" + name + "</td><td>" + website +
-         "</td><td>" + email + "</td><td>" + money + "</td><td>" + 
-         place + "</td><td>" + startDate + "</td><td>" + endDate+"</td></tr>";
+		document.getElementById("nameinsert").innerHTML = name;
+		document.getElementById("emailinsert").innerHTML = email;
+		document.getElementById("websiteinsert").innerHTML = website;
+		document.getElementById("moneyinsert").innerHTML = money;
+		document.getElementById("placeinsert").innerHTML = place;
+		document.getElementById("startDateinsert").innerHTML = startDate;
+		document.getElementById("endDateinsert").innerHTML = endDate;
   
     });
       </script>
-		<tr>
-			<td>Google</td>
-			<td>google.com</td>
-			<td>google@gmail.com</td>
-			<td>$15000</td>
-			<td>Mountain View, CA</td>
-			<td>4/21/17</td>
-			<td>5/22/17</td>
-		</tr>
-		<tr>
-			<td>Twitter</td>
-			<td>twitter.com</td>
-			<td>twitter@gmail.com</td>
-			<td>$3000</td>
-			<td>Menlo Park, CA</td>
-			<td>3/21/17</td>
-			<td>4/22/17</td>
-		</tr>
-		<tr>
-			<td>Amazon</td>
-			<td>amazon.com</td>
-			<td>amazon@gmail.com</td>
-			<td>$7000</td>
-			<td>Seattle, WA</td>
-			<td>2/21/17</td>
-			<td>4/22/17</td>
-		</tr>
-    <tr>
-			<td>LinkedIn</td>
-			<td>linkedin.com</td>
-			<td>linkedin@gmail.com</td>
-			<td>$11000</td>
-			<td>Fremont, CA</td>
-			<td>1/21/17</td>
-			<td>4/22/17</td>
-		</tr>
-    <tr>
-			<td>CodePen</td>
-			<td>codepen.com</td>
-			<td>codepen@gmail.com</td>
-			<td>$3000</td>
-			<td>San Jose, CA</td>
-			<td>4/21/17</td>
-			<td>8/22/17</td>
-		</tr>
-    <tr>
-			<td>GitHub</td>
-			<td>github.com</td>
-			<td>github@gmail.com</td>
-			<td>$14000</td>
-			<td>Cupertino, CA</td>
-			<td>4/21/17</td>
-			<td>12/22/17</td>
-		</tr>
 	</tbody>
 </table>
 </div>
