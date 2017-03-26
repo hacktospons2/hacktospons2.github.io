@@ -150,9 +150,10 @@
          var startDate = snap.child("startDate").value;
          var endDate = snap.child("endDate").value;
   
-    $("#tbody").append("<tr><td>" + name + "</td><td>" + website +
+	var div = document.getElementById('tbody');
+	div.innerHTML += "<tr><td>" + name + "</td><td>" + website +
          "</td><td>" + email + "</td><td>" + money + "</td><td>" + 
-         place + "</td><td>" + startDate + "</td><td>" + endDate+"</td></tr>");
+         place + "</td><td>" + startDate + "</td><td>" + endDate+"</td></tr>";
   
     });
       </script>
