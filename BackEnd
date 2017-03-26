@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	  <body>
+	    <h1>Please enter your company name in the field below</h1>
+	    <input>
+	      <button>Submit</button>
+	      
+          <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+          <script>
+          // Initialize Firebase
+          var config = {
+          apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+          authDomain: "hacktospons-3cbeb.firebaseapp.com",
+          databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+          storageBucket: "hacktospons-3cbeb.appspot.com",
+          messagingSenderId: "523367268259"
+         };
+      firebase.initializeApp(config);
+    </script>
+  <script src = "app.js"></script>
+</html>
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1>Please Enter Your Company Name Below</h1>
+    <input>
+    <button id="addCompanyName">Submit</button>
+    <button id="clear">Clear Database</button>
+    <p>
+      
+    </p>
+    <ol>
+    </ol>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+        authDomain: "hacktospons-3cbeb.firebaseapp.com",
+        databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+        storageBucket: "hacktospons-3cbeb.appspot.com",
+        messagingSenderId: "523367268259"
+      };
+      firebase.initializeApp(config);
+      </script>
+    <script>
+    var companyList = document.querySelector("ol");
+    var input = document.querySelector("input");
+    var submit = document.getElementById("addCompanyName");
+    var clear = document.getElementById("clear");
+    var database = firebase.database();
+    var reference = database.ref();
+    // sending
+    submit.onclick = function() {
+        reference.push(input.value);
+        input.value = "";
+    };
+    input.addEventListener("keyup", function(event) {
+      if (event.which == 13) {
+        reference.push(input.value);
+        input.value = "";
+      }
+    });
+    clear.onclick = function() {
+        reference.remove();
+    };
+    //receiving
+    reference.on("value", function(snapshot) {
+      var compList = snapshot.val();
+      companyList.innerHTML = "";
+      for (var key in compList) {
+        var value = compList[key];
+        companyList.innerHTML += '<li>' + value + '</li>';
+      }
+    })
+    </script>
+  </body>
+</html>

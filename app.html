@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Todo list</h1>
+    <input>
+    <button id="add">submit</button>
+    <button id="clear">clear</button>
+    <ol>
+    </ol>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+     <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+        authDomain: "hacktospons-3cbeb.firebaseapp.com",
+        databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+        storageBucket: "hacktospons-3cbeb.appspot.com",
+        messagingSenderId: "523367268259"
+      };
+      firebase.initializeApp(config);
+      </script>
+    <script>
+    var list = document.querySelector("ol");
+    var input = document.querySelector("input");
+    var submit = document.getElementById("add");
+    var clear = document.getElementById("clear");
+
+    var database = firebase.database();
+    var reference = database.ref();
+
+    // sending
+    submit.onclick = function() {
+        reference.push(input.value);
+        input.value = "";
+    };
+
+    input.addEventListener("keyup", function(event) {
+      if (event.which == 13) {
+        reference.push(input.value);
+        input.value = "";
+      }
+    });
+
+    clear.onclick = function() {
+        reference.remove();
+    };
+
+    //receiving
+    reference.on("value", function(snapshot) {
+      var todo = snapshot.val();
+      list.innerHTML = "";
+      for (var key in todo) {
+        var value = todo[key];
+        list.innerHTML += '<li>' + value + '</li>';
+      }
+
+    })
+
+    </script>
+  </body>
+</html>
