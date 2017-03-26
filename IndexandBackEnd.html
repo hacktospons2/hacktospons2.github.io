@@ -1,21 +1,31 @@
-<html !doctype>
-  
+<!DOCTYPE html>
+<html>
   <head>
-     <meta charset="utf-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     
-     <link rel="stylesheet" type="text/css" href="css/qdIsm.css">
+    <link rel="stylesheet" href="css/qdIsm.css">
   </head>
   
   <body>
-    <h1><span class="yellow">HackToSpons</span></h1>
-    <h2>Need a sponsor for your hackathon? Looking for hackathons to get publicity from? <a rel="nofollow" rel="noreferrer"href="https://github.com/hacktospons2/hacktospons2.github.io" target="_blank">We have the solution.</a></h2>
+    <h1>Contact Email:</h1>
+    <input>
+    <button id="addEmail">Submit</button>
+    
+    <h2>Website:</h2>
+    <input>
+    <button id = "addWebsite">Submit</button>
+    
+    <h3>Money Requestion/Sponsoring</h3>
+    <input>
+    <button id = "addMoney">Submit</button>
+    
+    <h4>Location:</h4>
+    <input>
+    <button id = "addLocation">Submit</button>
+    
+    <ol>
+    </ol>
 
-   <ol>
-   </ol>
-  
-   <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-      <script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script>
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
@@ -23,20 +33,37 @@
         databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
         storageBucket: "hacktospons-3cbeb.appspot.com",
         messagingSenderId: "523367268259"
-      };
+        };
       firebase.initializeApp(config);
-      </script>
-  
-  <script>
+    </script>
+    
+    <script>
     var list = document.querySelector("ol");
     var input = document.querySelector("input");
-    var submit = document.getElementById("add");
-    var clear = document.getElementById("clear");
-
+    var submitEmail = document.getElementById("addEmail");
+    var submitWebsite = document.getElementById("addWebsite");
+    var submitMoney = document.getElementById("addMoney");
+    var submitLocation = document.getElementById("addLocation");
     var database = firebase.database();
     var reference = database.ref();
-     // sending
-    submit.onclick = function() {
+
+    // sending
+    submitEmail.onclick = function() {
+        reference.push(input.value);
+        input.value = "";
+    };
+    
+    submitWebsite.onclick = function() {
+        reference.push(input.value);
+        input.value = "";
+    };
+    
+     submitMoney.onclick = function() {
+        reference.push(input.value);
+        input.value = "";
+    };
+        
+     submitLocation.onclick = function() {
         reference.push(input.value);
         input.value = "";
     };
@@ -47,10 +74,6 @@
         input.value = "";
       }
     });
-
-    clear.onclick = function() {
-        reference.remove();
-    };
 
     //receiving
     reference.on("value", function(snapshot) {
@@ -64,46 +87,5 @@
     })
 
     </script>
-
-    <form class="btn-group" action="" style="text-align: center">
-      <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto; padding: 100px"> Hackathon Organizer
-      <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto"> Company
-   </form>
-
-   <form style="text-align: center">
-      Contact email:
-      <input type="text" <input>>
-   </form>
-  
-   <form style="text-align: center">
-      Website:
-      <input type="text" <input>>
-   </form>
- 
-   <form style="text-align: center"> 
-      Money requesting/sponsoring:
-      <input type="text" <input>>
-   </form>
-
-   <form style="text-align: center">
-      Location:
-      <input type="text" <input>>
-   </form>
-
-   <form style="text-align: center">
-      Availability Start Date:
-      <input type="text" <input>>
-      Availability End Date:
-      <input type="text" <input>>
-   </form>
-
-   <form style="text-align: center"> 
-      <input type="submit" value="Submit">
-   </form>
-
-   <form style="text-align: center" action="hackathonList.html"> 
-      <input type="submit" value="View Hackathons/Sponsors">
-   </form>
-
   </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/qdIsm.css">
+  </head>
+ 
+  <body>
+    
+    var information = new Array(10);
+   <h1><span class="yellow">HackToSpons</span></h1>
+    <h2>Need a sponsor for your hackathon? Looking for hackathons to get publicity from? <a rel="nofollow" rel="noreferrer"href="https://github.com/hacktospons2/hacktospons2.github.io" target="_blank">We have the solution.</a></h2>
+
+    <form class="btn-group" action="" style="text-align: center">
+      <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto; padding: 100px"> Hackathon Organizer
+      <input type="radio" name="type" class="btn btn-primary" style="margin: 0 auto"> Company
+    </form>
+
+    <form style="text-align: center">
+      Contact email:
+      <input type="text" name=information[0] style="margin: 0 auto">
+      information[0] = name; 
+    </form>
+  
+  
+    <form style="text-align: center">
+      Website:
+      <input type="text" name=information[1] style="margin: 0 auto">
+    </form>
+      
+    <form style="text-align: center"> 
+      Money requesting/sponsoring:
+      <input type="text" name=information[2] style="margin: 0 auto">
+    </form>
+
+
+    <form style="text-align: center">
+      Location:
+      <input type="text" name=information[3] style="margin: 0 auto">
+    </form>
+ 
+    <form style="text-align: center">
+      Availability Start Date:
+      <input type="text" name=information[4] style="margin: 0 auto">
+      Availability End Date:
+      <input type="text" name=information[5] style="margin: 0 auto">
+    </form>
+
+  <form style="text-align: center"> 
+      <input type="submit" value="Submit">
+  </form>
+
+  <form style="text-align: center" action="hackathonList.html"> 
+    <input type="submit" value="View Hackathons/Sponsors">
+  </form>
+
+ </body>
+    <ol>
+    </ol>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+     <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+        authDomain: "hacktospons-3cbeb.firebaseapp.com",
+        databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+        storageBucket: "hacktospons-3cbeb.appspot.com",
+        messagingSenderId: "523367268259"
+      };
+      firebase.initializeApp(config);
+      </script>

@@ -27,8 +27,6 @@
     var list = document.querySelector("ol");
     var input = document.querySelector("input");
     var submit = document.getElementById("add");
-    var clear = document.getElementById("clear");
-
     var database = firebase.database();
     var reference = database.ref();
 
@@ -44,10 +42,6 @@
         input.value = "";
       }
     });
-
-    clear.onclick = function() {
-        reference.remove();
-    };
 
     //receiving
     reference.on("value", function(snapshot) {
