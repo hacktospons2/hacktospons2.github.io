@@ -16,6 +16,20 @@
   <button class="tablinks" onclick="openList(event, 'company')">Companies Providing Sponsorships</button>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+     <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBZCedSSmWw8zgbJ_IE9mJDjYbepZgsR94",
+        authDomain: "hacktospons-3cbeb.firebaseapp.com",
+        databaseURL: "https://hacktospons-3cbeb.firebaseio.com",
+        storageBucket: "hacktospons-3cbeb.appspot.com",
+        messagingSenderId: "523367268259"
+      };
+      firebase.initializeApp(config); /*global firebase*/
+      </script>
+      
+
 <div id="hackathon" class="tabcontent">
   <table class="container">
 	<thead>
@@ -30,6 +44,26 @@
 		</tr>
 	</thead>
 	<tbody>
+		<script type="text/javascript">
+      	var rootRef = firebase.database().ref().child("organizers");
+    
+    rootRef.on("child_added", snap => {
+        
+        
+         var name = snap.child("name").value;
+         var email = snap.child("email").value;
+         var website = snap.child("website").value;
+         var money = snap.child("money").value;
+         var place = snap.child("place").value;
+         var startDate = snap.child("startDate").value;
+         var endDate = snap.child("endDate").value;
+  
+    $("#table_body").append("<tr><td>" + name + "</td><td>" + website +
+         "</td><td>" + email + "</td><td>" + money + "</td><td>" + 
+         place + "</td><td>" + startDate + "</td><td>" + endDate+"</td></tr>");
+  
+    });
+      </script>
 		<tr>
 			<td>MakeHacks</td>
 			<td>makehacks.com</td>
@@ -102,6 +136,26 @@
 		</tr>
 	</thead>
 	<tbody>
+		<script type="text/javascript">
+      	var rootRef = firebase.database().ref().child("companies");
+    
+    rootRef.on("child_added", snap => {
+        
+        
+         var name = snap.child("name").value;
+         var email = snap.child("email").value;
+         var website = snap.child("website").value;
+         var money = snap.child("money").value;
+         var place = snap.child("place").value;
+         var startDate = snap.child("startDate").value;
+         var endDate = snap.child("endDate").value;
+  
+    $("#table_body").append("<tr><td>" + name + "</td><td>" + website +
+         "</td><td>" + email + "</td><td>" + money + "</td><td>" + 
+         place + "</td><td>" + startDate + "</td><td>" + endDate+"</td></tr>");
+  
+    });
+      </script>
 		<tr>
 			<td>Google</td>
 			<td>google.com</td>
