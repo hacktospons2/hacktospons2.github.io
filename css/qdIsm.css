@@ -156,3 +156,10 @@ div.tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+.link
+{
+   color:aqua;
+   text-decoration: none; 
+   background-color: none;
+}
